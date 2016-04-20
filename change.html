@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>十六进制之火种</title>
+
+<script type="text/javascript" language="javascript">
+flag="false";
+ function getCookie(cookie_name)
+ {
+     var allcookies = document.cookie;
+     var cookie_pos = allcookies.indexOf(cookie_name); 
+       //索引的长度
+ 
+     // 如果找到了索引，就代表cookie存在，
+    // 反之，就说明不存在。
+    if (cookie_pos != -1)
+     {
+         // 把cookie_pos放在值的开始，只要给值加1即可。
+        cookie_pos += cookie_name.length + 1;     
+         //这里容易出问题，所以请大家参考的时候自己好好研究一下
+        var cookie_end = allcookies.indexOf(";", cookie_pos);
+  
+         if (cookie_end == -1)
+         {
+             cookie_end = allcookies.length;
+         }
+  
+         var value = unescape(allcookies.substring(cookie_pos, cookie_end));         //这里就可以得到你想要的cookie的值了。。。
+    }
+     return value;
+ }
+
+
+if(!getCookie("flags")){  alert('失败'); 
+ }else{ alert(getCookie("flags"));}
+	
+	
+	if(!getCookie("uname")){  alert('失败'); 
+ }else{ alert(getCookie("uname"));}
+
+    dell=getCookie("uname");
+	flag=getCookie("flags");
+function change(){
+	if(flag == "True"){
+        document.getElementById("benph").innerHTML=dell;
+		var hp='<a href="logout.php">退出</a>';
+		document.getElementById("lan").innerHTML=hp;
+		}else{
+		var huawei='<a href="denglu.html">登录1</a>';
+	var htc='<a href="register.php">注册1</a>';
+	document.getElementById("benph").innerHTML=huawei;
+	document.getElementById("lan").innerHTML=htc;
+		
+		}
+		}
+	
+var iID =setInterval("change()",1000);
+
+</script>
+</head>
+
+<body>
+
+<p id="benph"><a href="denglu.html">登录</a></p>
+<p id="lan"><a href="register.php">注册</a></p>
+</body>
+</html>
